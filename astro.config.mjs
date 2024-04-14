@@ -37,7 +37,7 @@ export default defineConfig({
     starlight({
       title: 'SALO AI',
       favicon: '/favicon.svg',
-      customCss: ['./src/styles/main.css'],
+      customCss: ['./src/styles/tailwind.css'],
       editLink: {
         baseUrl: 'https://github.com/Frikadellios/salo-ai',
       },

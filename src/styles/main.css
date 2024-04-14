@@ -161,7 +161,7 @@
       
       
       :root {
-        --overlay-blurple: hsl(272.9,67.2%,39.4%);
+        --overlay-blurple: oklch(72.29% 0.192 149.58);
       }
   
       .glass {
@@ -173,7 +173,7 @@
     
     body {
         --sb-track-color: oklch(23.57% 0.008 274.61);
-        --sb-thumb-color: oklch(91.3% 0.139 195.8 / 70.25%);
+        --sb-thumb-color: oklch(72.29% 0.192 149.58 / 70.25%);
         --sb-size: 7px;
       }
       
@@ -189,7 +189,7 @@
       body::-webkit-scrollbar-thumb {
         background: var(--sb-thumb-color);
         border-radius: 10px;
-        border: 2px solid #232f22;
+        border: 2px solid oklch(72.29% 0.192 149.58);
       }
       @supports not selector(::-webkit-scrollbar) {
         body {
@@ -248,7 +248,7 @@
 :root {
     --transparent: rgba(0, 0, 0, 0);
     --overlay-hsl: 205, 60%, 60%;
-    --overlay-blurple: hsla(var(--overlay-hsl), 0.4);
+    --overlay-blurple: oklch(72.29% 0.192 149.58);
     --sl-font: 'Inter', sans-serif;
     --sl-content-margin-inline: auto !important;
     --sl-sidebar-width: 18rem;

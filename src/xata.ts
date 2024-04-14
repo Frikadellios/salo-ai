@@ -8,6 +8,34 @@ import type {
 
 const tables = [
   {
+    name: 'uploads',
+    columns: [{ name: 'image', type: 'file', file: { defaultPublicAccess: true } }],
+  },
+  {
+    name: 'profiles',
+    columns: [
+      { name: 'slug', type: 'string', unique: true },
+      { name: 'name', type: 'string' },
+      { name: 'image', type: 'string' },
+      { name: 'height', type: 'string' },
+      { name: 'width', type: 'string' },
+      { name: 'imageHash', type: 'text' },
+    ],
+  },
+  {
+    name: 'photographs',
+    columns: [
+      { name: 'image', type: 'string' },
+      { name: 'name', type: 'string' },
+      { name: 'tagline', type: 'string' },
+      { name: 'height', type: 'string' },
+      { name: 'width', type: 'string' },
+      { name: 'profile-slug', type: 'string' },
+      { name: 'slug', type: 'string' },
+      { name: 'imageHash', type: 'text' },
+    ],
+  },
+  {
     name: 'user',
     columns: [
       { name: 'paid', type: 'bool' },
@@ -29,6 +57,15 @@ const tables = [
 export type SchemaTables = typeof tables
 export type InferredTypes = SchemaInference<SchemaTables>
 
+export type Uploads = InferredTypes['uploads']
+export type UploadsRecord = Uploads & XataRecord
+
+export type Profiles = InferredTypes['profiles']
+export type ProfilesRecord = Profiles & XataRecord
+
+export type Photographs = InferredTypes['photographs']
+export type PhotographsRecord = Photographs & XataRecord
+
 export type User = InferredTypes['user']
 export type UserRecord = User & XataRecord
 
@@ -38,6 +75,9 @@ export type SessionRecord = Session & XataRecord
 export type DatabaseSchema = {
   user: UserRecord
   session: SessionRecord
+  uploads: UploadsRecord
+  profiles: ProfilesRecord
+  photographs: PhotographsRecord
 }
 
 const DatabaseClient = buildClient()
@@ -61,3 +101,6 @@ export const getXataClient = () => {
   instance = new XataClient()
   return instance
 }
+
+
+

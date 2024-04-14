@@ -14,6 +14,10 @@ interface ImportMetaEnv {
   readonly XATA_BRANCH?: string
 }
 
+interface ImportMetaEnv {
+  readonly CF_API_TOKEN: string;
+}
+
 interface ImportMeta {
-  readonly env: ImportMetaEnv
+  readonly env: ImportMetaEnv;
 }

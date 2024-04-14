@@ -1,0 +1,43 @@
+---
+import WebsiteLayout from "@/layouts/WebsiteLayout.astro";
+
+const response = { form: false, message: '', created: false, redirect: null }
+// ...
+if (Astro.request.method === 'POST') {
+  try {
+    // Indicate that the request is being processed
+    response.form = true
+    // Get the user email from the form submissions
+    const data = await Astro.request.formData()
+		// Get the user slug, name, and image: URL, width, and height from the form submissions
+    const userSlug = data.get('slug') as string
+    const userName = data.get('name') as string
+    const userImage = data.get('custom_upload_user__uploaded_image_url') as string
+    const userImageW = data.get('custom_upload_user__uploaded_w') as string
+    const userImageH = data.get('custom_upload_user__uploaded_h') as string
+		// Create a blur url of the user image
+		// Create the user record with the slug
+		// Redirect user to the next step
+  } catch (e) {
+    // pass
+  }
+}
+---
+
+<form method="post" autocomplete="off">
+    <Upload selector="user" />
+    <input required name="name" type="text" placeholder="Name" />
+    <input
+      required
+      name="slug"
+      type="text"
+      placeholder="Slug (e.g. rishi-raj-jain)"
+    />
+    <button type="submit">
+      Create Profile &rarr;
+    </button>
+  </form>
+
+<WebsiteLayout title="Upload Image Page">
+
+</WebsiteLayout>

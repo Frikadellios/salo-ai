@@ -50,6 +50,8 @@ p {
   @apply relative rounded border bg-background px-[0.3rem] py-[0.2rem] font-mono text-sm text-foreground;
 }
 
+
+
 .balance-text {
   text-wrap: balance;
 }

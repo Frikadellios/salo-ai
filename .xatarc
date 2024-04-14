@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Hrihorii-Ilin-s-workspace-tmh8bt.eu-central-1.xata.sh/db/salo-ai",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}

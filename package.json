@@ -1,24 +1,73 @@
 {
   "name": "salo-ai",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "astro dev --verbose",
+    "start": "astro check --verbose && astro dev --verbose",
     "build": "astro check && astro build",
     "preview": "astro build && wrangler pages dev ./dist",
     "astro": "astro",
     "deploy": "astro build && wrangler pages deploy ./dist",
+    "biomes": "biome check --apply ./",
     "build-cf-types": "wrangler types"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/cloudflare": "^10.1.0",
+    "@astrojs/mdx": "^2.3.0",
+    "@astrojs/node": "^8.2.5",
+    "@astrojs/react": "^3.3.0",
+    "@astrojs/starlight": "^0.21.5",
+    "@cloudflare/ai": "^1.1.0",
+    "@tailwindcss/postcss": "^4.0.0-alpha.14",
+    "@tailwindcss/vite": "^4.0.0-alpha.14",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.77",
+    "@types/react-dom": "^18.2.25",
+    "@xata.io/client": "^0.29.4",
     "astro": "^4.6.1",
-    "typescript": "^5.4.5"
+    "astro-expressive-code": "^0.34.1",
+    "dotenv": "^16.4.5",
+    "lucia": "^3.1.1",
+    "lucide-react": "^0.368.0",
+    "million": "^3.0.6",
+    "oslo": "^1.2.0",
+    "postcss": "^8.4.38",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "stripe": "^15.1.0",
+    "tailwindcss": "^4.0.0-alpha.14",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.8"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.6.4",
     "@cloudflare/workers-types": "^4.20240405.0",
+    "@types/bun": "^1.0.12",
     "wrangler": "^3.50.0"
-  }
+  },
+  "overrides": {
+    "astro-expressive-code": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frikadellios/salo-ai.git"
+  },
+  "author": "Hrihorii Ilin <devopsick@pm.me>",
+  "license": "Apache-2.0",
+  "description": "Cloudflare AI chalenge in april 2024",
+  "bugs": {
+    "url": "https://github.com/Frikadellios/salo-ai/issues"
+  },
+  "homepage": "https://github.com/Frikadellios/salo-ai#readme",
+  "keywords": [
+    "Cloudflare",
+    "AI",
+    "Astro",
+    "Xata",
+    "Biome",
+    "Stripe",
+    "CMS"
+  ]
 }

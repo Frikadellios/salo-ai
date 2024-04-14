@@ -1,0 +1,56 @@
+---
+import "@/styles/tailwind.css"
+import Card from "@/components/Card.astro"
+
+import { Ai } from '@cloudflare/ai'
+
+ export interface Env {
+   AI: any;
+ }
+
+export const prerender = false;
+export const partial = true;
+
+interface TextCompletionResponse {
+  result: {
+    response: string;
+  };
+}
+const chatData = await Astro.request.json() as { model?: string; question?: string };
+const model = chatData.model ?? "";
+const question = chatData.question ?? "";
+
+const messages = [
+  { role: "system", content: "Answer the user's question" },
+  { role: "user", content: question },
+];
+
+const modelNamesToIds: Record<string, string> = {
+  mistral: "@cf/mistral/mistral-7b-instruct-v0.1",
+  llama: "@cf/meta/llama-2-7b-chat-int8",
+};
+
+const modelId = modelNamesToIds[model] ?? modelNamesToIds["mistral"];
+
+let response = "";
+try {
+  const res = await fetch(
+    `https://api.cloudflare.com/client/v4/accounts/e5985dfc4cecdf4f2b7307186b98489e/ai/run/${Ai}`,
+    {
+      headers: { Authorization: `Bearer ${import.meta.env["CF_API_TOKEN"]}` },
+      method: "POST",
+      body: JSON.stringify({ messages }),
+    },
+  );
+  const asJson: TextCompletionResponse = await res.json();
+  response = asJson.result.response;
+} catch (e) {
+  response = (e as Error).message;
+}
+---
+
+<Card
+    name={modelId}
+    question={question}
+    answer={response}>{messages}
+</Card>

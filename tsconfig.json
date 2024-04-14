@@ -1,8 +1,33 @@
 {
-"extends": "astro/tsconfigs/strict",
-"compilerOptions": {
-    "types": [
-        "@cloudflare/workers-types/2023-07-01"
-    ]
-}
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "types": ["@cloudflare/workers-types/2023-07-01", "astro/client"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "allowJs": true,
+
+    // Bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+
+    // Best practices
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+
+    // Some stricter flags
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
 }

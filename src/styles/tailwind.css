@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+  
+@layer base {
+
+  @font-face {
+    font-family: 'Custom Font';
+    /* Use a relative path to the local font file in `url()`. */
+    src: url('../assets/fonts/inter.woff2') format('woff2');
+    font-weight: normal;
+    font-style: latin;
+    font-display: swap;
+  }
+
+  
+    * {
+      @apply border-border;
+    }
+    .no-visible-scrollbar {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+     
+    .no-visible-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    
+    body {
+      transition: background-color 0.5s ease;
+      @apply bg-background text-foreground;
+      font-family: 'Inter', sans-serif;
+      font-feature-settings: "rlig" 1, "calt" 1;
+    }
+          .prose code {
+              @apply text-base;
+            }
+            
+    
+          h1 {
+            @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-foreground;
+          }
+          
+          h2 {
+            @apply mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 text-foreground;
+          }
+          
+          h3 {
+           @apply mt-8 scroll-m-20 text-2xl font-semibold tracking-tight text-foreground;
+          }
+          
+          h4 {
+            @apply scroll-m-20 text-xl font-semibold tracking-tight text-foreground;
+          }
+  
+          p {
+            @apply leading-7 [&:not(:first-child)]:mt-6
+          }
+          
+          .balance-text {
+            text-wrap: balance;
+          }
+        
+        .site-title:hover {
+          @apply opacity-75 ;
+        }
+  
+        :not(pre) > code {
+          @apply relative rounded border bg-background px-[0.3rem] py-[0.2rem] font-mono text-sm text-foreground;
+        }
+
+        .prose code {
+          @apply text-base;
+        }
+
+        .glass {
+          background: oklch(10.69% 0.019 318.2 / 0.52);
+          backdrop-filter: blur(13px) saturate(150%);
+          -webkit-backdrop-filter: blur(13px) saturate(150%);
+          z-index: -1;
+        }
+        
+        .shadow {
+          box-shadow: -5px 3px 8px 1px oklch(0.5 0.233 303.9 / 0.33);
+        }
+        body {
+          --sb-track-color: oklch(23.57% 0.008 274.61);
+          --sb-thumb-color: oklch(91.3% 0.139 195.8 / 70.25%);
+          --sb-size: 7px;
+        }
+        
+        body::-webkit-scrollbar {
+          width: var(--sb-size)
+        }
+        
+        body::-webkit-scrollbar-track {
+          background: var(--sb-track-color);
+          border-radius: 10px;
+        }
+        
+        body::-webkit-scrollbar-thumb {
+          background: var(--sb-thumb-color);
+          border-radius: 10px;
+          border: 2px solid #232f22;
+        }
+        
+        @supports not selector(::-webkit-scrollbar) {
+          body {
+            scrollbar-color: var(--sb-thumb-color)
+                             var(--sb-track-color);
+          }
+        }
+       
+
+        @layer utilities {
+          .text-balance {
+            text-wrap: balance;
+          }
+        }
+      }
+  
+
+  
+@theme {
+  
+    --foreground-rgb: oklch(98.3% 0.004 316.6);
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    --color-neon-pink: oklch(71.7% 0.25 360);
+    --color-neon-lime: oklch(91.5% 0.258 129);
+    --color-neon-cyan: oklch(91.3% 0.139 195.8);
+    --color-emerald-green: oklch(69.59% 0.149 162.48);
+    --color--overlay-blurple: oklch(91.3% 0.139 195.8);
+    --overlay-blurple: oklch(0.5 0.233 303.9 / 0.33);
+    --color-green: oklch(0.5 0.207 156.57);
+    --color-black: oklch(0% 0 0);
+    --color-white: oklch(100% 0 0);
+	  --color-chiter: oklch(23.57% 0.008 274.61);
+    /* Shadcn - purple-black */
+    --color-background: oklch(10.69% 0.019 318.2);
+    --color-foreground: oklch(98.3% 0.004 316.6);
+    --color-muted: oklch(18.81% 0.012 316.42);
+    --color-popover: oklch(10.69% 0.019 318.2);
+    --color-popover-foreground: oklch(98.3% 0.004 316.6);
+    --color-card: oklch(12.24% 0.022 318.06);
+    --color-card-foreground:oklch(99.15% 0.002 316.6);
+    --color-border: oklch(27.84% 0.03 256.85);
+    --color-input: oklch(27.84% 0.03 256.85);
+    --color-primary: oklch(72.29% 0.192 149.58);
+    --color-secondary: oklch(27.41% 0.005 286.03);
+    --color-secondary-foreground: oklch(98.48% 0 0);
+    --color-accent: oklch(27.45% 0.044 316.1);
+    --color-accent-foreground: oklch(80.22% 0.047 316.44);
+    --color-destructive: oklch(59.18% 0.227 29.7);
+    --color-destructive-foreground: oklch(100% 0 0);
+    --color-ring: oklch(35.6% 0.174 312.18);
+    --color-primary-foreground: oklch(26.64% 0.063 152.95);
+    --muted-foreground: oklch(70.25% 0.012 316.56);
+    --color-border: oklch(27.41% 0.005 286.03);
+
+    --color-primary-purple: oklch(35.6% 0.174 312.18);
+    --color-primary-foreground-purple: oklch(84.29% 0.111 316.21);
+    --color-secondary-purple: oklch(22.83% 0.024 316.3);
+    --color-secondary-foreground-purple: oklch(76.42% 0.041 316.45);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+}
+
+
+
+@keyframes scroll {
+  scroll { 
+  transform: "var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite"
+  }
+  to {
+  transform: "translate(calc(-50% - 0.5rem))"
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 30px, 0);
+  }
+}
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  67% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+  
+@keyframes animate8345 {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  
+  50% {
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+@keyframes vert-move {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+@property --tw-outline-style {
+  syntax: "<custom-ident>";
+  inherits: false;
+  initial-value: solid;
+}

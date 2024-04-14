@@ -1,0 +1,29 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import '@/styles/tailwind.css'
+export interface Props {
+  title: string
+  description?: string
+}
+
+const { title } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+			<body>
+                <main>
+				    <slot />
+                </main>
+			</body>
+		</div>
+</html>
